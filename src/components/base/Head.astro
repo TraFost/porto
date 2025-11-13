@@ -14,9 +14,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const ogImage = new URL(image || SITE.ogImage, Astro.url)
 ---
 
-<script is:inline src="/js/theme.js"></script>
-
-<!-- 页面内SEO  On-Page SEO -->
+<!-- Theme toggle script removed to disable client-side theme switching --><!-- 页面内SEO  On-Page SEO -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="generator" content={Astro.generator} />

@@ -42,7 +42,7 @@ if (hasPinnedPosts) {
           can do anything, you just do it.
         </p>
         <p>
-          Today, I'm a full-stack developer, from backend to frontend(web / mobile). I love solving problems, learning new things, and
+          Today, I'm a full-stack developer, from backend to frontend (web / mobile). I love solving problems, learning new things, and
           working with teams that push me to be better.
         </p>
         <p>
@@ -62,6 +62,22 @@ if (hasPinnedPosts) {
         }
       </div>
     </div>
+
+    {
+      SKILLS_ENABLED && SKILLS_DATA.length > 0 && (
+        <>
+          <SectionDivider />
+          <div class="py-8 pb-10 px-6 max-md:px-6">
+            <div class="px-2 max-md:px-0">
+              <h2 class="text-2xl sm:text-3xl tracking-tight">Technologies & Tools</h2>
+              <p class="text-muted-foreground mb-6 mt-1">A selection of technologies & tools I frequently work with.</p>
+            </div>
+            <SkillsShowcase skillsData={SKILLS_DATA} />
+          </div>
+        </>
+      )
+    }
+
     {
       ENABLED && (
         <>
@@ -69,27 +85,14 @@ if (hasPinnedPosts) {
           <div class="py-8 pb-10 px-6 max-md:px-6">
             <div class="px-2 max-md:px-0">
               <h2 class="text-2xl sm:text-3xl">Spotlight</h2>
-              <p class="text-muted-foreground mb-6 mt-1">Most recent contributions.</p>
+              <p class="text-muted-foreground mb-6 mt-1">My contributions in Github</p>
             </div>
             <GithubContributions username={GITHUB_USERNAME} tooltipEnabled={TOOLTIP_ENABLED} client:load transition:animate="none" />
           </div>
         </>
       )
     }
-    {
-      SKILLS_ENABLED && SKILLS_DATA.length > 0 && (
-        <>
-          <SectionDivider />
-          <div class="py-8 pb-10 px-6 max-md:px-6">
-            <div class="px-2 max-md:px-0">
-              <h2 class="text-2xl sm:text-3xl tracking-tight">Skills</h2>
-              <p class="text-muted-foreground mb-6 mt-1">Here are some skills I have used:</p>
-            </div>
-            <SkillsShowcase skillsData={SKILLS_DATA} />
-          </div>
-        </>
-      )
-    }
+
     <SectionDivider />
     <div class="py-8 pb-10 px-6 sm:px-8">
       <h2 class="text-2xl sm:text-3xl tracking-tight">Posts</h2>

@@ -45,7 +45,7 @@
         <link rel="preload" href="/fonts/GeistMono.woff2" as="font" type="font/woff2" />
         <!-- <link rel="stylesheet" href="/fonts/ShangguSansSC-VF/result.css" /> -->
         <link rel="stylesheet" href="/rss/rss.css" />
-        <script src="/js/theme.js"></script>
+  <!-- theme switching script removed -->
       </head>
       <body>
         <header>

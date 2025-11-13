@@ -162,7 +162,7 @@ export const SKILLSSHOWCASE_CONFIG: SkillsShowcaseConfig = {
 }
 
 export const GITHUB_CONFIG: GithubConfig = {
-  ENABLED: true,
+  ENABLED: false,
   GITHUB_USERNAME: 'TraFost',
   TOOLTIP_ENABLED: true,
 }
