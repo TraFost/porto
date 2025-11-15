@@ -149,13 +149,13 @@ export type Link = {
  * @property {string} name - 平台名称 / Platform name
  * @property {string} url - 个人主页URL / Profile URL
  * @property {string} icon - 图标类名 / Icon class name
- * @property {number} [count] - 可选计数 / Optional count
+ * @property {string} description
  */
 export type SocialLink = {
   name: string
   url: string
   icon: string
-  count?: number
+  description: string
 }
 
 /**

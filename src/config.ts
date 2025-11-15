@@ -22,6 +22,8 @@ export const SITE: Site = {
   ogImage: 'https://avatars.githubusercontent.com/u/93178373?size=64',
 }
 
+export const BOOTCAMP_LINK = 'https://harisenin.com/school/bootcamp/full-stack-web-developer'
+
 export const HEADER_LINKS: Link[] = [
   {
     name: 'Posts',
@@ -63,24 +65,34 @@ export const FOOTER_LINKS: Link[] = [
 // get icon https://icon-sets.iconify.design/
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    name: 'linkedin',
-    url: 'https://www.linkedin.com/in/rahmannrdn',
-    icon: 'icon-[ri--linkedin-box-fill]',
-  },
-  {
     name: 'github',
     url: 'https://github.com/TraFost',
     icon: 'icon-[ri--github-fill]',
+    description: "Visit my Github to see what i'm working on!",
+  },
+  {
+    name: 'linkedin',
+    url: 'https://www.linkedin.com/in/rahmannrdn',
+    icon: 'icon-[ri--linkedin-box-fill]',
+    description: 'Connect with me on LinkedIn for updates on what I’m building and where I’m heading.',
+  },
+  {
+    name: 'reddit',
+    url: 'https://www.reddit.com/user/Ok_Avocado970/',
+    icon: 'icon-[ri--reddit-fill]',
+    description: 'See my thoughts, takes, and random tech discussions',
   },
   {
     name: 'twitter',
     url: 'https://x.com/Nurudin1Rahman',
     icon: 'icon-[ri--twitter-x-fill]',
+    description: 'Follow my updates, builds, and occasional chaos.',
   },
   {
     name: 'instagram',
     url: 'https://instagram.com/rahmannrdn',
     icon: 'icon-[ri--instagram-fill]',
+    description: 'A bit of life outside code — food, trips, and everything in between.',
   },
 ]
 
