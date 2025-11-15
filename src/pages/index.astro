@@ -1,15 +1,18 @@
 ---
 import { SITE, SKILLSSHOWCASE_CONFIG, SOCIAL_LINKS } from '~/config'
-import { GITHUB_CONFIG, POSTS_CONFIG } from '~/config'
+import { POSTS_CONFIG, BOOTCAMP_LINK } from '~/config'
+
 import Layout from '~/layouts/Layout.astro'
 import SectionDivider from '~/components/base/SectionDivider.astro'
-import GithubContributions from '~/components/base/GithubContributions'
 import SocialLink from '~/components/base/SocialLink.astro'
 import List from '~/components/posts/card/List.astro'
 import SkillsShowcase from '~/components/base/SkillsShowcase.astro'
+import AsciiAnimation from '~/components/base/AsciiAnimation'
+
 import { getNumPosts, getPinnedPosts } from '~/lib/data'
 
-const { ENABLED, GITHUB_USERNAME, TOOLTIP_ENABLED } = GITHUB_CONFIG
+import icarus from '../../public/ascii/icarus-ascii.html?raw'
+
 const { size, type } = POSTS_CONFIG.homePageConfig
 const { SKILLS_ENABLED, SKILLS_DATA } = SKILLSSHOWCASE_CONFIG
 
@@ -23,8 +26,12 @@ if (hasPinnedPosts) {
 }
 ---
 
-<Layout title="Readme" description={SITE.description}>
-  <div class="relative z-[1]">
+<Layout title="About Me" description={SITE.description}>
+  <div class="hidden lg:flex lg:justify-end max-w-7xl mx-auto relative">
+    <AsciiAnimation client:load html={icarus} />
+  </div>
+
+  <section class="relative border-x border-border/50 max-w-3xl mx-auto grow min-w-0">
     <div class="py-8 pb-10 px-6 sm:px-8">
       <h1 class="flex flex-col gap-2">
         <span class="text-4xl sm:text-5xl tracking-tight">Get to know me better</span>
@@ -34,30 +41,29 @@ if (hasPinnedPosts) {
       </h1>
       <div class="pro text-muted-foreground text-pretty">
         <p>
-          I didn’t start in tech. I started in a factory, with a fire in my head that just wouldn’t go away. I taught myself to code, joined
-          a bootcamp, and hustled my way into my first dev role.
+          I started outside tech, teaching myself to code while working in a factory. Later I joined a <a
+            href={BOOTCAMP_LINK}
+            title="Look at Harisenin Full-Stack Web Developer Bootcamp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Link to Harisenin Full-Stack Web Developer Bootcamp">Full-Stack Web Developer Bootcamp</a
+          >
+          and built enough real projects to land my first developer role.
         </p>
         <p>
-          I’ve always believed that if you want something bad enough, you find a way. When you have that slightly delusional belief that you
-          can do anything, you just do it.
+          I work as a full-stack engineer across backend and frontend for web and mobile, focusing on clean implementation and fast learning
+          in high-pressure environments.
         </p>
         <p>
-          Today, I'm a full-stack developer, from backend to frontend (web / mobile). I love solving problems, learning new things, and
-          working with teams that push me to be better.
+          Outside work, I chase new tech, jump into hackathons, and follow whatever keeps my curiosity sharp. I’m also into gaming, anime,
+          food, books, and coffee.
         </p>
-        <p>
-          Outside work, I love tinkering with new tech, joining hackathons, and reading about the latest trends that keep me challenged and
-          curious.
-        </p>
-        <p>
-          Still, life isn’t all code. I’m into gaming (ex–Dota 2 Divine rank 😅), food, coffee, books, anime (Hajime No Ippo big fan here),
-          and time with friends and family.
-        </p>
+        <p>I’m open to new opportunities and always happy to connect.</p>
       </div>
       <div class="mt-6 flex gap-6">
         {
           SOCIAL_LINKS.map((item) => {
-            return <SocialLink href={item.url} icon={item.icon} aria-label={`Link of ${item.name}`} />
+            return <SocialLink href={item.url} icon={item.icon} aria-label={`Link of ${item.name}`} description={item.description} />
           })
         }
       </div>
@@ -78,21 +84,7 @@ if (hasPinnedPosts) {
       )
     }
 
-    {
-      ENABLED && (
-        <>
-          <SectionDivider />
-          <div class="py-8 pb-10 px-6 max-md:px-6">
-            <div class="px-2 max-md:px-0">
-              <h2 class="text-2xl sm:text-3xl">Spotlight</h2>
-              <p class="text-muted-foreground mb-6 mt-1">My contributions in Github</p>
-            </div>
-            <GithubContributions username={GITHUB_USERNAME} tooltipEnabled={TOOLTIP_ENABLED} client:load transition:animate="none" />
-          </div>
-        </>
-      )
-    }
-
+    <!-- WIP -->
     <SectionDivider />
     <div class="py-8 pb-10 px-6 sm:px-8">
       <h2 class="text-2xl sm:text-3xl tracking-tight">Posts</h2>
@@ -102,5 +94,5 @@ if (hasPinnedPosts) {
       </p>
       <List posts={showPosts} {type} coverLayout={POSTS_CONFIG.homePageConfig?.coverLayout} />
     </div>
-  </div>
+  </section>
 </Layout>
